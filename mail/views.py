@@ -69,14 +69,13 @@ def uploadfiles(request):
 
 def sendmail(request):
     email = emails
-    print(email)
     if request.method == "POST":
         subject = request.POST.get('mail_subject')
         message = request.POST.get('message')
         from_mail = request.POST.get('from_mail')
 
         #getting emails from the uploadfiles function using global variable
-        send_mail(subject, message,from_mail ,email,  fail_silently=False)
+        send_mail(subject, message,from_mail,email,fail_silently=False)
     return render(request, 'sendMassmail.html')
 
 def About(request):
