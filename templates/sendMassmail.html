@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <form method="post" action="{% url 'sendmail' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="form-label mt-2">Sender's Email</label>
+                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter email"
+                        name="from_mail" multiple>
+                    <label for="inputSubject" class="form-label mt-2">Mail Subject</label>
+                    <input type="text" name="mail_subject" class="form-control" id="inputSubject"
+                        placeholder="Enter mail's subject">
+                    <div class="form-group">
+                        <label for="exampleTextarea" class="form-label mt-4">Body</label>
+                        <textarea class="form-control" id="exampleTextarea" rows="3" name="message"></textarea>
+                    </div>
+                    <div class="d-grid gap-2"></div>
+                    <button type="submit" class="btn btn-lg btn-outline-primary mt-2"><i class="fa fa-paper-plane"
+                            aria-hidden="true"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <p class="fs-4">Mail will only be sent to the valid email address from the JSON file.</p>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock content %}

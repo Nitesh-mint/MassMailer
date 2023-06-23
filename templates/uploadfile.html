@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container p-3">
+    <div class="row pb-3">
+        <div class="col-md-4">
+            <div class="card border-light mb-3" style="max-width: 43rem;">
+                <div class="card-body">
+                    <h4 class="card-title text-white text-center">Upload Json File</h4>
+                    <form method="POST" action="{% url 'uploadfile' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{uploadjson}}
+                        <center>
+                            <input type="submit" class="btn btn-outline-primary mt-2 p-3" value="Check Validity">
+                        </center>
+                    </form>
+                </div>
+                {% include 'includes/alerts.html' %}
+                {% if valid_email %}
+                <a class="btn btn-outline-primary m-3" href="{% url 'sendmail' %}"><i class="fa fa-paper-plane"
+                        aria-hidden="true"></i>&nbsp;Send Mail</a>
+                {% endif %}
+            </div>
+            <div class="card border-light mb-3" style="max-width: 43rem">
+                <a class="btn btn-outline-danger text-white m-3 float-center" href="{% url 'home' %}"><i
+                        class="fa fa-home" aria-hidden="true"></i>&nbsp;Go to Home</a>
+            </div>
+            {% if not valid_email %}
+                <div class="alert alert-dismissible alert-info text-black fs-5">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>Please make sure to upload a valid JSON file.
+                </div>
+            {% endif %}
+            {% if valid_email %}
+                <div class="alert alert-dismissible alert-success text-black">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>Send mail to {{total}} valid emails
+                </div>
+            {% endif %}
+        </div>
+        {% if valid_email or invalid_email %}
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <table class="table table-success table-hover">
+                        <thead class="text-muted">
+                            <tr class="text-center">
+                                <th scope="col">Valid Emails: <span
+                                        class="badge rounded-pill text-bg-dark">{{valid_num}}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for emails in valid_email %}
+                            <tr class="table-primary text-center">
+                                <td>
+                                    <p class="">{{emails}}</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-danger table-hover">
+                        <thead class="text-muted">
+                            <tr class="text-center">
+                                <th scope="col">Invalid Emails: <span
+                                        class="badge rounded-pill text-bg-dark">{{invalid_num}}</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for emails in invalid_email %}
+                            <tr class="table-primary text-center">
+                                <td>
+                                    <p class="">{{emails}}</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-md-8">
+            <div class="card border-light mb-3" style="max-width: 43rem;">
+                <div class="card-body">
+                    <p class="fs-5 text-white">Mail will only be sent to the valid email address from the JSON file.
+                        Invalid
+                        emails are filtered and are discarded.</p><strong class="rounded-pill text-bg-dark fs-5">Here is
+                        the example of JSON file
+                        which will be accepted</strong></p>
+                    <pre class="border bg-dark-subtle text-dark">
+                                [
+                                    {
+                                    "_id": "648f12b550fab34d88c290c1",
+                                    "email": "niteshraya5@gmail.com"
+                                    },
+                                    {
+                                    "_id": "648f12b527415572472b3a11",
+                                    "email": "nitesh.raya058@gmail.com"
+                                    }
+                                ]
+                        </pre>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% if valid_email or invalid_email %}
+</div>
+</div>
+{% endif %}
+{% endblock content %}
