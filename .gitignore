@@ -2,3 +2,4 @@
 *.pyc
 !spec/*.pyc
 .DJANGO_SECRET_KEY
+.SENDINBLUE_API
