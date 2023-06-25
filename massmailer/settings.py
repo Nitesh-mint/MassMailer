@@ -20,6 +20,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+# import os
+
+# # ...
+
+# try:
+#     SECRET_KEY = os.environ["SECRET_KEY"]
+# except KeyError as e:
+#     raise RuntimeError("Could not find a SECRET_KEY in environment")
+
 SECRET_KEY = 'django-insecure-f5(!5v51wa4kyrkwn@tjc59j^*uux3l8_^wt!tl0yu#m^&o@id'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -135,7 +145,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'anymail.backends.sendinblue.EmailBackend'
 ANYMAIL = {
-    "SENDINBLUE_API_KEY": "Your-sendinblue-api",
+    "SENDINBLUE_API_KEY": "api",
     "SEND_DEFAULTS": {
         "tags": ["app"]
     },
