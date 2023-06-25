@@ -12,5 +12,5 @@ pycparser==2.21
 requests==2.31.0
 sqlparse==0.4.4
 typing_extensions==4.6.3
-urllib3==2.0.3
+urllib3==1.26.6
 validate-email==1.3
