@@ -11,7 +11,6 @@ This project built on <strong>DJANGO</strong>  aims to send emails to multiple u
 ```
 python -m venv .venv
 source .venv/bin/activate
-
 ```
 <li>Install requirements:</li>
 
