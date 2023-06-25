@@ -131,9 +131,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-import os
-
 STATIC_URL = 'static/'
+import os
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'templates'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'templates')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -155,6 +156,6 @@ MESSAGE_TAGS = {
     messages.ERROR : 'danger',
 }
 
-if os.environ.get("VERCEL"):
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# if os.environ.get("VERCEL"):
+#     STATIC_ROOT = os.path.join(BASE_DIR, "statifiles")
+#     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
