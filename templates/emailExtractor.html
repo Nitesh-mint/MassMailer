@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container p-3">
+    <div class="row pb-3">
+        <div class="col-md-4">
+            <div class="card border-light mb-3" style="max-width: 43rem;">
+                <div class="card-body">
+                    <h4 class="card-title text-white text-center">Email Extractor</h4>
+                    <form method="POST" action="{% url 'EmailExtractor' %}">
+                        {% csrf_token %}
+                        <input type="url" name="link">
+                        <input type="submit">
+                    </form>
+                </div>
+                {% if emails %}
+                <a class="btn btn-outline-primary m-3" href="{% url 'sendmail' %}"><i class="fa fa-paper-plane"
+                        aria-hidden="true"></i>&nbsp;Send Mail</a>
+                {% endif %}
+            </div>
+            <div class="card border-light mb-3" style="max-width: 43rem">
+                <a class="btn btn-outline-danger text-white m-3 float-center" href="{% url 'home' %}"><i
+                        class="fa fa-home" aria-hidden="true"></i>&nbsp;Go to Home</a>
+            </div>
+            {% if not emails %}
+            <div class="alert alert-dismissible alert-info text-black fs-5">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>No Emails found
+            </div>
+            {% endif %}
+            {% if emails %}
+            <div class="alert alert-dismissible alert-success text-black">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>Send mail to {{total}} valid
+                emails
+            </div>
+            {% endif %}
+        </div>
+        {% if emails %}
+        <div class="col-md-8">
+            <table class="table table-success table-hover">
+                <thead class="text-muted">
+                    <tr class="text-center">
+                        <th scope="col">Emails</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for email in emails %}
+                    <tr class="table-primary text-center">
+                        <td>
+                            <p class="">{{email}}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+
+{% endblock content %}

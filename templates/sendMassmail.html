@@ -9,6 +9,7 @@
                         <form method="post" action="{% url 'sendmail' %}">
                             {% csrf_token %}
                             <div class="form-group">
+                                {% include 'includes/alerts.html' %}
                                 <label class="form-label mt-2">Sender's Email</label>
                                 <input type="text" class="form-control" aria-describedby="emailHelp"
                                     placeholder="Enter email" name="from_mail" multiple>
