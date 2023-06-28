@@ -9,8 +9,8 @@
                     <h4 class="card-title text-white text-center">Email Extractor</h4>
                     <form method="POST" action="{% url 'EmailExtractor' %}">
                         {% csrf_token %}
-                        <input type="url" name="link">
-                        <input type="submit">
+                        <input type="url" name="link" class="form-control"><br>
+                        <input type="submit" class="form-control" value="Extract">
                     </form>
                 </div>
                 {% if emails %}
@@ -24,12 +24,12 @@
             </div>
             {% if not emails %}
             <div class="alert alert-dismissible alert-info text-black fs-5">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>No Emails found
+                <button type="button" class="close" data-bs-dismiss="alert"><span aria-hidden="true">&times;</span></button>No Emails found
             </div>
             {% endif %}
             {% if emails %}
             <div class="alert alert-dismissible alert-success text-black">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>Send mail to {{total}} valid
+                <button type="button" class="close" data-bs-dismiss="alert"><span aria-hidden="true">&times;</span></button>Send mail to {{total}} valid
                 emails
             </div>
             {% endif %}

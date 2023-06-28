@@ -2,7 +2,7 @@
     {% for message in messages %}
     <div id="message" class="container">
         <div {% if message.tags %} class="alert alert-dismissible alert-{{ message.tags }}" {% endif %}>
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <button type="button" class="close" data-bs-dismiss="alert"><span aria-hidden="true">&times;</span></button>
             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
             <p class="text-black">{{ message }}</p>
         </div>

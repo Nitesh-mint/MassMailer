@@ -27,12 +27,12 @@
             </div>
             {% if not valid_email %}
                 <div class="alert alert-dismissible alert-info text-black fs-5">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>Please make sure to upload a valid JSON file.
+                    <button type="button" class="close" data-bs-dismiss="alert"><span aria-hidden="true">&times;</span></button>Please make sure to upload a valid JSON file.
                 </div>
             {% endif %}
             {% if valid_email %}
                 <div class="alert alert-dismissible alert-success text-black">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>Send mail to {{valid_num}} valid emails
+                    <button type="button" class="close" data-bs-dismiss="alert"><span aria-hidden="true">&times;</span></button>Send mail to {{valid_num}} valid emails
                 </div>
             {% endif %}
         </div>
@@ -43,8 +43,8 @@
                     <table class="table table-success table-hover">
                         <thead class="text-muted">
                             <tr class="text-center">
-                                <th scope="col">Valid Emails: <span
-                                        class="badge rounded-pill text-bg-dark">{{valid_num}}</span>
+                                <th scope="col" class="text-white">Valid Emails: <span
+                                        class="badge rounded-pill bg-dark">{{valid_num}}</span>
                                 </th>
                             </tr>
                         </thead>
@@ -63,8 +63,8 @@
                     <table class="table table-danger table-hover">
                         <thead class="text-muted">
                             <tr class="text-center">
-                                <th scope="col">Invalid Emails: <span
-                                        class="badge rounded-pill text-bg-dark">{{invalid_num}}</span></th>
+                                <th scope="col" class="text-white">Invalid Emails: <span
+                                        class="badge rounded-pill bg-dark">{{invalid_num}}</span></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,7 +89,7 @@
                         emails are filtered and are discarded.</p><strong class="rounded-pill text-bg-dark fs-5">Here is
                         the example of JSON file
                         which will be accepted</strong></p>
-                    <pre class="border bg-dark-subtle text-dark">
+                    <pre class="border bg-dark-subtle text-white">
                                 [
                                     {
                                     "_id": "648f12b550fab34d88c290c1",
@@ -106,8 +106,6 @@
         </div>
         {% endif %}
     </div>
-    {% if valid_email or invalid_email %}
 </div>
 </div>
-{% endif %}
 {% endblock content %}
