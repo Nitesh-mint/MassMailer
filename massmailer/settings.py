@@ -30,6 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # except KeyError as e:
 #     raise RuntimeError("Could not find a SECRET_KEY in environment")
 
+os.environ.get('SECRET_KEY')
+
 SECRET_KEY = 'django-insecure-f5(!5v51wa4kyrkwn@tjc59j^*uux3l8_^wt!tl0yu#m^&o@id'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -138,6 +140,8 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+os.environ.get('SENDINBLUE_API')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
