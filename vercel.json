@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "massmailer/wsgi.py",
+      "src": "django_project/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
@@ -10,7 +10,7 @@
       "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "static"
+        "distDir": "staticfiles_build"
       }
     }
   ],
@@ -21,7 +21,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "massmailer/wsgi.py"
+      "dest": "django_project/wsgi.py"
     }
   ]
 }
