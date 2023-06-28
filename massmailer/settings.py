@@ -134,16 +134,12 @@ USE_TZ = True
 
 import os
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / "static"
-STATICFILES_DIRS = [os.path.join(BASE_DIR,"staticfiles")]
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+STATIC_ROOT = BASE_DIR / 'static'
+
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # import os
 # STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -155,7 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'anymail.backends.sendinblue.EmailBackend'
 ANYMAIL = {
-    "SENDINBLUE_API_KEY": "api",
+    "SENDINBLUE_API_KEY": "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",
     "SEND_DEFAULTS": {
         "tags": ["app"]
     },

@@ -124,7 +124,10 @@ def EmailExtractor(request):
     return render(request, 'emailExtractor.html')
 
 def sendmail(request):
-    email = emails
+    try:
+        email = emails
+    except:
+        messages.error(request,"Failed to get Emails!")
     if request.method == "POST":
         subject = request.POST.get('mail_subject')
         message = request.POST.get('message')
