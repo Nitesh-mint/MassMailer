@@ -135,6 +135,7 @@ USE_TZ = True
 import os
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
 
 # Default primary key field type
