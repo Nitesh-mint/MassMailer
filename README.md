@@ -5,7 +5,7 @@ This project built on <strong>DJANGO</strong>  aims to send emails to multiple u
 <li>Send mails to multiple emails at the same time.</li>
 <li>Send mail using JSON file.</li>
 
-# Setup
+# Setup - Virutal Environment
 <li><b>Fork</b> this repo or download <b>zip</b>, open termial inside the project folder and follow:</li>
 
 ```
@@ -39,5 +39,8 @@ ANYMAIL = {
 <li>Run the server</li>
 
 `python manage.py runserver`
+
+# Setup DOCKER
+`docker-compose up -d --build`
 
 
