@@ -148,7 +148,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'anymail.backends.sendinblue.EmailBackend'
 ANYMAIL = {
-    "SENDINBLUE_API_KEY": "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",
+    "SENDINBLUE_API_KEY": "",
     "SEND_DEFAULTS": {
         "tags": ["app"]
     },
