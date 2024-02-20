@@ -4,3 +4,4 @@
 .DJANGO_SECRET_KEY
 .SENDINBLUE_API
 staticfiles/
+.DS_Store

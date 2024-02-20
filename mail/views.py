@@ -27,8 +27,8 @@ def home(request):
         try:
             send_mail(mail_subject, body,from_email,[email],  fail_silently=False)
             messages.success(request, "Email has been sent successfully!")
-        except:
-            messages.error(request, "Failed to send message, Please try again!")
+        except Exception as e:
+            messages.error(request, f"Failed to send message: {e}")
 
         return render(request, 'home.html')
     return render(request, 'home.html')
